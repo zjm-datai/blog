@@ -2,17 +2,60 @@ baseURL = "https://zjm-datai.github.io/blog/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
 title = "我的技术博客"
-theme = ""
+theme = "PaperMod"
 publishDir = "public"
 
 [params]
+  env = "production"
   description = "记录技术思考与实践"
-  author = ""
+  author = "zjm-datai"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowBreadCrumbs = true
+  ShowToc = true
+  TocOpen = false
+  ShowRssButtonInSectionTermList = true
+  disableSpecial1stPost = true
+
+  [params.homeInfoParams]
+    Title = "你好，欢迎来到我的博客"
+    Content = "记录技术思考、工程实践与人工智能探索。"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/zjm-datai"
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = false
+  [markup.highlight]
+    noClasses = false
+    style = "monokai"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [permalinks]
   posts = "/posts/:slug/"
+
+[[menu.main]]
+  identifier = "posts"
+  name = "文章"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "tags"
+  name = "标签"
+  url = "/tags/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "search"
+  name = "搜索"
+  url = "/search/"
+  weight = 30
