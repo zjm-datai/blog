@@ -1,0 +1,18 @@
+baseURL = "https://YOUR-USERNAME.github.io/blog/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "我的技术博客"
+theme = ""
+publishDir = "public"
+
+[params]
+  description = "记录技术思考与实践"
+  author = ""
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+
+[permalinks]
+  posts = "/posts/:slug/"

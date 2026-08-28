@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="intro">
+  <p class="eyebrow">TECHNICAL NOTES</p>
+  <h1>{{ site.Title }}</h1>
+  <p class="lead">{{ site.Params.description }}</p>
+</section>
+<section aria-labelledby="posts-heading">
+  <div class="section-heading"><h2 id="posts-heading">文章</h2><span>{{ len .Pages }} 篇</span></div>
+  <div class="post-list">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="post-item">
+      <p class="post-date">{{ .Date.Format "2006-01-02" }}</p>
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | truncate 120 }}</p>{{ end }}
+      <a class="read-link" href="{{ .RelPermalink }}">阅读文章 <span aria-hidden="true">→</span></a>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
